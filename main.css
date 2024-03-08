@@ -1,0 +1,83 @@
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    font-size: 100%;
+    position: relative; /* Add position relative for absolute positioning */
+}
+
+.nav-link-group {
+    display: flex;
+    justify-content: space-between;
+    width: 8em;
+}
+
+
+.mobile-menu-toggle {
+    display: none; /* Initially hide the hamburger menu */
+}
+
+.hamburger {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    position: relative;
+    transition: transform 0.4s ease;
+}
+
+.hamburger:before,
+.hamburger:after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    transition: transform 0.4s ease;
+}
+
+.hamburger:before {
+    top: -8px;
+}
+
+.hamburger:after {
+    bottom: -8px;
+}
+
+
+/* Show the hamburger menu when the screen width is less than 768px */
+@media screen and (max-width: 768px) {
+    .nav-link-group {
+        display: none; /* Hide the navigation links initially */
+        justify-content: space-evenly;
+        align-items: center; /* Center items horizontally */
+        position: absolute;
+        top: 100%; /* Position below the header */
+        left: 0;
+        width: 100%;
+        padding: .5em;
+        z-index: 1000;
+    }
+
+    .mobile-menu-toggle {
+        display: block; /* Show the hamburger menu */
+    }
+
+    .mobile-menu-toggle.active .hamburger {
+        transform: rotate(45deg);
+    }
+
+    .mobile-menu-toggle.active .hamburger:before {
+        transform: translateY(8px) rotate(90deg);
+    }
+
+    .mobile-menu-toggle.active .hamburger:after {
+        transform: translateY(-8px) rotate(90deg);
+    }
+
+    /* Show the navigation links when the menu is toggled */
+    .nav-link-group.active {
+        display: flex;
+    }
+}
