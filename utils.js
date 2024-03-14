@@ -21,3 +21,18 @@ document.addEventListener('DOMContentLoaded', function () {
         menu.classList.toggle('active');
     });
 });
+
+
+function startTypingAnimation() {
+    var text = document.querySelector('.text');
+    text.classList.remove('text');
+    void text.offsetWidth;
+    text.classList.add('text');
+  }
+  
+  // Start the animation immediately
+  startTypingAnimation();
+  
+  // Repeat the animation every 5 seconds
+  setInterval(startTypingAnimation, 6000);
+  
